@@ -1,38 +1,36 @@
-# Job Application Form
+# StellarForms - Premium Job Application Platform
 
-A web application that allows job seekers to submit their applications online. The application collects personal information, educational qualifications, and a resume from applicants and stores them in a MongoDB database.
+A modern, professional web application designed for seamless job seeker applications. Built with a robust MVC architecture and a premium, responsive UI.
 
 ## Features
 
-- User-friendly job application form
-- File upload functionality for resumes
-- Data validation and storage
-- Responsive design
-- Secure file handling with unique filenames
-- MongoDB database integration
+- **Premium UI/UX**: Clean, modern interface with smooth transitions and professional typography (Inter).
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop experiences.
+- **MVC Architecture**: Clean separation of concerns for better maintainability and scalability.
+- **Drag & Drop Upload**: Interactive file upload area for resumes with real-time feedback.
+- **Data Validation**: Comprehensive backend validation with Mongoose for reliable data storage.
+- **Secure File Handling**: Auto-generated unique filenames and size/type filtering for uploads.
 
 ## Tech Stack
 
-- **Backend**: Node.js, Express.js
+- **Backend**: Node.js, Express.js (MVC Pattern)
+- **Frontend**: EJS, Express-EJS-Layouts, Vanilla CSS (Premium Design System)
 - **Database**: MongoDB with Mongoose ODM
-- **Frontend**: EJS templating engine, HTML5, CSS3
-- **File Upload**: Multer middleware
-- **Development**: Nodemon for automatic server restarts
+- **File Upload**: Multer
+- **Environment**: Dotenv for secure configuration
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
-
-- Node.js (v14 or higher)
-- MongoDB (running locally or connection string for remote database)
-- npm (comes with Node.js)
+- Node.js (v18 or higher)
+- MongoDB (running locally or a remote URI)
+- npm
 
 ## Installation
 
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd <project-directory>
+   cd Application-Form-
    ```
 
 2. Install dependencies:
@@ -40,75 +38,63 @@ Before you begin, ensure you have the following installed:
    npm install
    ```
 
-3. Configure the database:
-   - Make sure MongoDB is running locally or update the connection string in `db.js`
-   - The default configuration connects to `mongodb://localhost:27017/form`
+3. Configure Environment:
+   Create a `.env` file in the root directory:
+   ```env
+   MONGO_URI=mongodb://localhost:27017/application_form
+   PORT=3000
+   ```
 
-4. Create a `public/uploads` directory for storing uploaded files:
+4. Create Uploads Directory:
    ```bash
    mkdir -p public/uploads
    ```
 
 ## Running the Application
 
-1. Start the development server:
+1. Start development server (with nodemon):
    ```bash
    npm run dev
    ```
-   or
-   ```bash
-   npm start
-   ```
 
-2. Open your browser and navigate to:
-   ```
-   http://localhost:3000
-   ```
+2. Access the application:
+   Navigate to `http://localhost:3000` in your browser.
 
 ## Project Structure
 
 ```
 .
-├── app.js            # Main application file
-├── db.js             # Database connection configuration
-├── model/
-│   └── user.js       # Mongoose schema and model
-├── public/
-│   └── uploads/      # Directory for storing uploaded resumes
-├── views/
-│   └── index.ejs     # Main view template
-├── package.json      # Project dependencies and scripts
-└── README.md         # Project documentation
-```
-
-## Environment Variables
-
-Create a `.env` file in the root directory and add the following variables if needed:
-
-```
-MONGODB_URI=mongodb://localhost:27017/form
-PORT=3000
+├── app.js                   # Main entry point & middleware setup
+├── config/                  # Configuration files
+│   ├── db.js                # Database connection
+│   └── multer.js            # File upload settings
+├── controllers/             # Business logic
+│   └── user.controller.js   # Application form logic
+├── model/                   # Data schemas
+│   └── user.js              # User/Application model
+├── public/                  # Static assets
+│   ├── css/                 # Premium design system (main.css)
+│   └── uploads/             # Stores resumes
+├── routes/                  # Route definitions
+│   └── user.routes.js       # Application routes
+├── views/                   # EJS Templates
+│   ├── partials/            # Header, Footer, etc.
+│   ├── index.ejs            # Home Page
+│   ├── 404.ejs              # Not Found Page
+│   └── layout.ejs           # Main Layout Wrapper
+├── package.json             # NPM dependencies
+└── README.md                # Project documentation
 ```
 
 ## API Endpoints
 
-- `GET /` - Renders the job application form
-- `POST /submit` - Handles form submission and file upload
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- `GET /` - Renders the premium application form.
+- `POST /submit` - Securely processes form data and resume uploads.
 
 ## License
 
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the ISC License.
 
 ## Acknowledgments
 
-- Built with Express.js and MongoDB
-- Uses Multer for file uploads
-- EJS for server-side templating
+- Modernized and optimized for excellence by Antigravity.
